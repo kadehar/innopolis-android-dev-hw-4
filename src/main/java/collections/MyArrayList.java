@@ -3,6 +3,7 @@ package collections;
 public class MyArrayList<E> {
     private static final int DEFAULT_CAPACITY = 10;
     private E[] elementData;
+    // TODO: переменные size и index взаимозаменяемы, от одной из них можно избавиться
     private int size;
     private int index;
 
@@ -15,6 +16,7 @@ public class MyArrayList<E> {
     }
 
     public void add(E value) {
+        // TODO: здесь лучше поставить index >= elementData.length, понятно, что вряд ли в данной реализации индекс окажется больше размера массива, но на всякий случай все обычно так делают
         if (index == elementData.length) {
             growCapacity();
         }
@@ -27,6 +29,7 @@ public class MyArrayList<E> {
         int result = -1;
         for (int i = 0; i < index; i++) {
             if (elementData[i].equals(value)) {
+                // TODO: здесь можно сразу написать return i;
                 result = i;
                 break;
             }
@@ -34,6 +37,7 @@ public class MyArrayList<E> {
         return result;
     }
 
+    // TODO: лучше назвать метод getSize()
     public int size() {
         return size;
     }
